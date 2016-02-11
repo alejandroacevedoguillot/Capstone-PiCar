@@ -16,7 +16,7 @@ class ServoConvert():
         self.value_out  = center_value
         self._center    = center_value
         self._range     = range
-        self._half_range= 0.5*range
+        self._half_range= 0.75*range
         self._dir       = direction
         self.id         = id
 
@@ -37,17 +37,17 @@ class DkLowLevelCtrl():
         rospy.init_node('dk_llc')
 
         self.actuators = {}
-        self.actuators['t']  = ServoConvert(id=1)
-        self.actuators['r']  = ServoConvert(id=2, direction=1) #-- positive left
-	self.actuators['test1'] = ServoConvert(id=3)
-	self.actuators['test2'] = ServoConvert(id=4)
-	self.actuators['throttle'] = ServoConvert(id=5)
+        #self.actuators['t']  = ServoConvert(id=1)
+        #self.actuators['r']  = ServoConvert(id=2, direction=1) #-- positive left
+	#self.actuators['test1'] = ServoConvert(id=3)
+	#self.actuators['test2'] = ServoConvert(id=4)
+	self.actuators['throttle'] = ServoConvert(id=5,direction=1)
 	self.actuators['steering'] = ServoConvert(id=6, direction=1)
 
         rospy.loginfo("> Actuators corrrectly initialized")
 
         self._servo_msg       = ServoArray()
-        for i in range(6): self._servo_msg.servos.append(Servo())
+        for i in range(2): self._servo_msg.servos.append(Servo())
 
         #--- Create the servo array publisher
         self.ros_pub_servo_array    = rospy.Publisher("/servos_absolute", ServoArray, queue_size=1)
@@ -84,12 +84,14 @@ class DkLowLevelCtrl():
         self.send_servo_msg()
 
     def send_servo_msg(self):
-	print(self)
-        for actuator_name, servo_obj in self.actuators.iteritems():
-            self._servo_msg.servos[servo_obj.id-5].servo = servo_obj.id
-            self._servo_msg.servos[servo_obj.id-5].value = servo_obj.value_out
-            rospy.loginfo("Sending to %s command %d"%(actuator_name, servo_obj.value_out))
-
+	
+        #for actuator_name, servo_obj in self.actuators.iteritems():
+           # self._servo_msg.servos[servo_obj.id-4].servo = servo_obj.id
+            #self._servo_msg.servos[servo_obj.id-5].value = servo_obj.value_out
+            #rospy.loginfo("Sending to %s command %d"%(actuator_name, servo_obj.value_out))
+        self._servo_msg.servos[5].servo = actuators.id
+        self._servo_msg.servos[5].value = actuators.value_out
+        #rospy.loginfo("Sending to %s command %d"%(actuator_name, servo_obj.value_out))
         self.ros_pub_servo_array.publish(self._servo_msg)
 
     @property

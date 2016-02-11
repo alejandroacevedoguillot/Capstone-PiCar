@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="line_tracking" name="linetracking_node" type="ROS_linetracking.py" output="screen">
+  </node>
+</launch>

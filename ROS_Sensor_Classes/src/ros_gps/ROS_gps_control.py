@@ -7,7 +7,7 @@ import rospy
 from std_msgs.msg import Float32
 
 
-port = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=1)
+port = serial.Serial("/dev/ttyUSB1", baudrate=9600, timeout=1)
 port.write('AT'+'\r\n')            
 time.sleep(.1)
 port.write('AT+CGNSPWR=1'+'\r\n')            

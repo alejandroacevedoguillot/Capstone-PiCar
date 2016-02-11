@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="ros_gps" name="gps_node" type="ROS_gps_control.py" output="screen">
+  </node>
+</launch>

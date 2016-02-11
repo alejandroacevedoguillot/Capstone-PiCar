@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="ros_pi_car_config" name="ros_pi_car_config_node" type="ROS_config.py" output="screen">
+  </node>
+</launch>

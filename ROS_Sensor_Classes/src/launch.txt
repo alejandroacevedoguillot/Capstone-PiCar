@@ -1,0 +1,11 @@
+ 
+
+
+  <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+ <include file="$(find ros_gps)/launch/gps_node.launch"/>
+<include file="$(find raspicam_node)/launch/camera_module_v2_640x480_5fps.launch"/>
+  <node pkg="web_video_server" name="web_video_server" type="web_video_server" output="screen" >
+  </node>
+
+ #<node pkg="donkey_llc" name="donkey_llc" type="low_level_control.py" output="screen" >
+  #</node>
