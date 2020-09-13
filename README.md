@@ -12,4 +12,4 @@ To begin with, original test code will be provided that outlines the functionali
       
       
  -Ultrasonic.py
-      *Description of code used to verify the functionality of the ultrasonic sensor used in the creation of this PiCar. The model number of the ultrasonic used is *FIX*
+      *Description of code used to verify the functionality of the ultrasonic sensor used in the creation of this PiCar. The model number of the ultrasonic used is HC-SR04
