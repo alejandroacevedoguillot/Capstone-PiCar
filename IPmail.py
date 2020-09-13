@@ -6,9 +6,9 @@ import datetime
 from time import sleep
 #account info
 sleep(35)
-to = 'acemoneysniper1997@gmail.com'
-gmail_user = 'acemoneysniper1997@gmail.com'
-gmail_password = '@LEX15141312!'
+to = 'your_email@gmail.com' #Fill in your_email@gmail.com with your actual gmail account
+gmail_user = 'your_email@gmail.com' #Fill in your_email@gmail.com with your actual gmail account
+gmail_password = 'your_password!' #Fill in your_password with the appropriate password of your gmail account
 smtpserver = smtplib.SMTP('smtp.gmail.com', 587)
 smtpserver.ehlo()
 smtpserver.starttls()
