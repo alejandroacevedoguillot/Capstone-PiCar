@@ -1,0 +1,15 @@
+<launch>
+    
+  <include file="$(find i2cpwm_board)/launch/i2cpwm_node.launch"/>
+  <include file="$(find line_tracking)/launch/linetracking_node.launch"/>
+
+  <include file="$(find ultrasonic)/launch/ultrasonic_node.launch"/>
+
+ 
+
+  <include file="$(find ros_pi_car_config)/launch/config.launch"/>
+  
+
+
+</launch>
+
